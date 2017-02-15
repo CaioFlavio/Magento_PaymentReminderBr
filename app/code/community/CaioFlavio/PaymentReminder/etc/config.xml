@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <CaioFlavio_PaymentReminder>
+            <version>0.0.1</version>
+        </CaioFlavio_PaymentReminder>
+    </modules>
+    <global>
+        <template>
+            <email>
+                <caioflavio_paymentreminder_payment_reminder>
+                    <label>Lembrete de pagamento de Boleto Bancário</label>
+                    <file>order_payment_reminder.html</file>
+                    <type>html</type>
+                </caioflavio_paymentreminder_payment_reminder>
+            </email>
+        </template>
+        <helpers>
+            <CaioFlavio_PaymentReminder>
+                <class>CaioFlavio_PaymentReminder_Helper</class>
+            </CaioFlavio_PaymentReminder>
+        </helpers> 
+        <models>
+            <caioflavio_paymentreminder>
+                <class>CaioFlavio_PaymentReminder_Model</class>
+            </caioflavio_paymentreminder>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <caioflavio_paymentreminder_send>
+                <schedule>
+                    <config_path>paymentreminder/general/cron_exec</config_path>
+                </schedule>
+                <run><model>caioflavio_paymentreminder/cron::reminderSend</model></run>
+            </caioflavio_paymentreminder_send>
+        </jobs>
+    </crontab>
+    <default>
+        <paymentreminder>
+            <general>
+                <cron_exec>30 0 * * *</cron_exec>
+            </general>
+        </paymentreminder>
+        <paymentreminder>
+            <general>
+                <expiration_days>5</expiration_days>
+            </general>
+        </paymentreminder>    
+    </default> 
+</config>

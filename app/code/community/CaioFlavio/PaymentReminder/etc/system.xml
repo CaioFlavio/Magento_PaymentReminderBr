@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <caioflavio>
+            <label>CaioFlavio Extensions</label>
+            <sort_order>100</sort_order>
+        </caioflavio>
+    </tabs>
+    <sections>
+        <paymentreminder>
+            <label>Payment Reminder</label>
+            <tab>caioflavio</tab>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general>
+                    <label>Geral</label>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active>
+                            <label>Ativar Modulo?</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </active>
+                        <expiration_days>
+                            <label>Qtd de dias de expiração do boleto após a compra:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </expiration_days>                          
+                        <cron_exec>
+                            <label>Horario de envio dos emails:</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Cron Expression</comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <!-- <show_in_website>1</show_in_website> -->
+                            <!-- <show_in_store>1</show_in_store> -->
+                        </cron_exec>                                             
+                    </fields>
+                </general>                                  
+                <first_email>
+                    <label>Email</label>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store> 
+                    <fields>                        
+                        <template>
+                            <label>Template do Email</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                        </template>
+                        <antecipate_days>
+                            <label>Antecipação de dias do email:</label>
+                            <frontend_type>text</frontend_type>
+                            <!-- <comment>Cron Expression</comment> -->
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </antecipate_days> 
+                    </fields>  
+                </first_email>
+            </groups>
+        </paymentreminder>
+    </sections>
+</config>
