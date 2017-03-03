@@ -47,7 +47,27 @@
                             <show_in_default>1</show_in_default>
                             <!-- <show_in_website>1</show_in_website> -->
                             <!-- <show_in_store>1</show_in_store> -->
-                        </cron_exec>                                             
+                        </cron_exec> 
+                        <payment_method>
+                            <label>Metodo de Pagamento:</label>
+                            <frontend_type>select</frontend_type>
+                            <!-- <comment>Cron Expression</comment> -->
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <!-- <show_in_website>1</show_in_website> -->
+                            <!-- <show_in_store>1</show_in_store> -->
+                            <source_model>caioflavio_paymentreminder/system_config_source_payment_values</source_model>
+                        </payment_method>
+                        <payment_status>
+                            <label>Status de Pagamento:</label>
+                            <frontend_type>select</frontend_type>
+                            <comment>Status do boleto pendente</comment>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <!-- <show_in_website>1</show_in_website> -->
+                            <!-- <show_in_store>1</show_in_store> -->
+                            <source_model>caioflavio_paymentreminder/system_config_source_status_values</source_model>
+                        </payment_status>                                                 
                     </fields>
                 </general>                                  
                 <first_email>
