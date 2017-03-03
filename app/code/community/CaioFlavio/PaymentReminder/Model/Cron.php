@@ -1,14 +1,22 @@
 <?php 
 	class CaioFlavio_PaymentReminder_Model_Cron extends Mage_Core_Model_Abstract{
-		protected function getOrders($from, $to, $storeId, $status = Mage_Sales_Model_Order::STATE_HOLDED){
+		protected function getOrders($from, $to, $storeId){
+			$paymentMethod = Mage::getStoreConfig('paymentreminder/general/payment_method');
+			$status		   = Mage::getStoreConfig('paymentreminder/general/payment_status');
 			$orderCollection = Mage::getModel('sales/order')
-				->getCollection()
-				->addFieldToFilter('created_at', array(
-						'from'  => $from,
-						'to'	=> $to,
-						'data' 	=> true,
-					)
+			->getCollection()
+	        ->join(
+	            array('payment' => 'sales/order_payment'),
+	            'main_table.entity_id = payment.parent_id',
+	            array('payment_method' => 'payment.method')
+	        )
+			->addFieldToFilter('created_at', array(
+					'from'  => $from,
+					'to'	=> $to,
+					'data' 	=> true,
 				)
+			)
+			->addFieldToFilter('payment.method', $paymentMethod)
 			->addFieldToFilter('store_id', $storeId)
 			->addFieldToFilter('status', $status);
 
