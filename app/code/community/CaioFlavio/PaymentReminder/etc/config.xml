@@ -40,12 +40,8 @@
         <paymentreminder>
             <general>
                 <cron_exec>30 0 * * *</cron_exec>
-            </general>
-        </paymentreminder>
-        <paymentreminder>
-            <general>
                 <expiration_days>5</expiration_days>
             </general>
-        </paymentreminder>    
-    </default> 
+        </paymentreminder>
+    </default>
 </config>
